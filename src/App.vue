@@ -1,0 +1,39 @@
+<template>
+  <div id="app">
+    <navbar></navbar>
+    <router-view></router-view>
+    <lefooter></lefooter>
+  </div>
+</template>
+
+<script>
+import navbar from "./components/static/commons/navbar";
+import lefooter from "./components/static/commons/lefooter";
+
+export default {
+  name: 'App',
+  components: {
+    lefooter,
+    navbar
+  }
+}
+</script>
+
+<style>
+#app {
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+  font-family: 'Raleway', sans-serif;
+}
+
+html, body {
+  margin : 0;
+  background-color: #ffffff;
+
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+</style>

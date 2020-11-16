@@ -1,0 +1,60 @@
+<template>
+  <nav>
+    <div class="nav__wrap">
+      <div class="logo__title">
+        <img src="../../../assets/logos/logonav.png" alt="logonav">
+      </div>
+      <ul class="nav__list">
+        <li class="nav__item"><a href="">Bières</a></li>
+        <li class="nav__item"><a href="">Brasseries</a></li>
+        <li class="nav__item"><a href="">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</template>
+
+<script>
+export default {
+  name: "navbar"
+}
+</script>
+
+<style scoped>
+a {
+  padding: 0 12px;
+  color: white;
+}
+
+.nav__list {
+  position: relative;
+  display: inline-block;
+  top: inherit;
+  left: inherit;
+  right: inherit;
+  bottom: inherit;
+  overflow-y: inherit;
+  float: right;
+}
+nav {
+  background-color: #5FC85C;
+}
+
+.logo__title {
+  color: white;
+  display: inline-block;
+}
+
+.nav__wrap {
+  height: 71px;
+  margin-right: 460px;
+  margin-left: 400px;
+  line-height: 35px;
+}
+.nav__item {
+  display: inline-block;
+  color: white;
+}
+
+
+
+</style>
