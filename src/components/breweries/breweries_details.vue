@@ -62,7 +62,13 @@ export default {
 .banner__wrapper {
   width: 100%;
 }
-
+.banner__wrapper--headline{
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  position: relative;
+}
 .banner__wrapper__headline--landing {
   display: flex;
   justify-content: center;

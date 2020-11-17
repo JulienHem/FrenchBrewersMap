@@ -1,8 +1,6 @@
 <template>
    <div class="footer_wrapper">
-
    </div>
-
 </template>
 
 <script>
@@ -14,8 +12,8 @@ export default {
 <style scoped>
 .footer_wrapper {
   background-color: #5fc85c;
-  height: 280px;
-  margin-top: 100px;
+  height: 150px;
+
 }
 
 </style>
