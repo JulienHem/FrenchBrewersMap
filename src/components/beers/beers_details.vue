@@ -4,7 +4,7 @@
       <h1 class="beer__title">LES BIERES</h1>
     </div>
 
-    <div class="details__wrapper">
+    <div class="row">
       <div class="right__column">
         <div class="right__column__content">
           <h1 class="style__title">Styles</h1>
@@ -46,8 +46,12 @@
       </div>
 
 
-      <div class="details__title">
-        <h1>La Sélection</h1>
+      <div class="details__wrapper">
+        <div class="details__header">
+          <h1 class="details__title">
+            <span>La Sélection</span>
+          </h1>
+        </div>
       </div>
     </div>
   </div>
@@ -64,9 +68,12 @@ export default {
 .beer_banner_img {
   background-image: url("../../../../brewersmap/src/assets/home/beer_shop_banner.png");
 }
-
 .beer__wrapper {
   width: 100%;
+}
+li, ul {
+  padding: 0;
+  margin: 0;
 }
 .beer__wrapper--headline {
   overflow: hidden;
@@ -75,11 +82,9 @@ export default {
   background-size: cover;
   position: relative;
 }
-
 .beer__wrapper__headline--landing {
   height: 720px;
 }
-
 .beer__title {
   display: flex;
   justify-content: center;
@@ -87,36 +92,67 @@ export default {
   color: white;
   font-size: 85px;
 }
-.details__wrapper{
+.row {
   display: flex;
+  flex-wrap: wrap;
 }
 .right__column {
-  box-shadow: 3px 0px 7px -4px rgba(0, 0, 0, 0.49);
+  box-shadow: 3px 0 7px -4px rgba(0, 0, 0, 0.49);
   display: flex;
-  width: 300px;
+  flex: 0 0 20%;
+  max-width: 20%;
   height: 1600px;
   margin-bottom: 0;
 }
-
 .right__column__title {
   margin-top: 50px;
 }
-
 .right__column__content {
   display: flex;
   align-items: start;
   flex-direction: column;
-  padding-left: 50px;
-  margin-top: 150px;
+  padding-left: 100px;
+  margin-top: 80px;
 }
-
-li, ul {
-  padding: 0;
-  margin: 0;
-}
-
 .list__content {
   margin-top: 5px;
+}
+.details__wrapper {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 80%;
+  max-width: 80%;
+}
+.details__header{
+  box-sizing: border-box;
+  width: 100%;
+}
+.details__title::before{
+  content: "";
+  display: block;
+  border-bottom: solid 1px rgba(0,0,0,.5);
+  flex: 1;
+}
+.details__title {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.details__title::after{
+  content: "";
+  display: block;
+  border-bottom: solid 1px rgba(0,0,0,.5);
+  flex: 1;
+}
+.details__title span {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 </style>
