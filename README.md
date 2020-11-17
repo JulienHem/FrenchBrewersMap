@@ -1,21 +1,9 @@
-# brewersmap
+# La Brewers Map
 
-> A Vue.js project
+> La Brewers Map is a french project and its purpose is to regroup every breweries from France in one website.
 
-## Build Setup
+> The goal is to make it easy to find a beer in your region and to know which breweries produce which beer !
 
-``` bash
-# install dependencies
-npm install
+# Creator
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+I'm a french Frontend Developer and obviously a beer lover ! As I wanted to create a personal project I decided to make use of my knowledge and my passion !
