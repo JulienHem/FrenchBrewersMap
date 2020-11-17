@@ -36,14 +36,12 @@ a {
   float: right;
 }
 nav {
-  background-color: #5FC85C;
+  background-color: #ffffff;
 }
-
 .logo__title {
-  color: white;
+  color: #5FC85C;
   display: inline-block;
 }
-
 .nav__wrap {
   height: 71px;
   margin-right: 460px;
@@ -52,7 +50,10 @@ nav {
 }
 .nav__item {
   display: inline-block;
-  color: white;
+  color: #5FC85C;
+}
+a {
+  color: #5FC85C;
 }
 
 

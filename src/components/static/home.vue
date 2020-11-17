@@ -209,7 +209,7 @@ export default {
   text-align: center;
 }
 .france__map path {
-  fill: #abe859;
+  fill: #5FC85C;
   stroke: #000;
   stroke-width: 0.50px;
   transition: fill 0.3s;
