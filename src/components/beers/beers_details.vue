@@ -4,43 +4,50 @@
       <h1 class="beer__title">LES BIERES</h1>
     </div>
 
-    <div class="right__column">
-      <div class="right__column__content">
-        <h1 class="style__title">Styles</h1>
-        <ul>
-          <li class="list__content">Triple</li>
-          <li class="list__content">Quadruple</li>
-          <li class="list__content">Pills</li>
-          <li class="list__content">IPA</li>
-          <li class="list__content">New England IPA</li>
-          <li class="list__content">Stout</li>
-          <li class="list__content">Stout - Imperial</li>
-          <li class="list__content">Sour</li>
-        </ul>
-        <h1 class="">Régions</h1>
-        <ul>
-          <li class="list__content">Hauts-De-France</li>
-          <li class="list__content">Ile-de-France</li>
-          <li class="list__content">Normandie</li>
-          <li class="list__content">Bretagne</li>
-          <li class="list__content">Grand Est</li>
-          <li class="list__content">Pays de la Loire</li>
-          <li class="list__content">Centre-Val de Loire</li>
-          <li class="list__content">Bourgogne</li>
-          <li class="list__content">Nouvelle Aquitaine</li>
-          <li class="list__content">Auvergne-Rhônes-Alpes</li>
-          <li class="list__content">Occitanie</li>
-          <li class="list__content">Provence-Alpes-Côte d'Azur</li>
-        </ul>
-        <h1 class="right__column__title">Couleurs</h1>
-        <ul>
-          <li class="list__content">Ambrée</li>
-          <li class="list__content">Blanche</li>
-          <li class="list__content">Blonde</li>
-          <li class="list__content">Brune</li>
-          <li class="list__content">Rosée</li>
-          <li class="list__content">Rouge</li>
-        </ul>
+    <div class="details__wrapper">
+      <div class="right__column">
+        <div class="right__column__content">
+          <h1 class="style__title">Styles</h1>
+          <ul>
+            <li class="list__content">Triple</li>
+            <li class="list__content">Quadruple</li>
+            <li class="list__content">Pills</li>
+            <li class="list__content">IPA</li>
+            <li class="list__content">New England IPA</li>
+            <li class="list__content">Stout</li>
+            <li class="list__content">Stout - Imperial</li>
+            <li class="list__content">Sour</li>
+          </ul>
+          <h1 class="">Régions</h1>
+          <ul>
+            <li class="list__content">Hauts-De-France</li>
+            <li class="list__content">Ile-de-France</li>
+            <li class="list__content">Normandie</li>
+            <li class="list__content">Bretagne</li>
+            <li class="list__content">Grand Est</li>
+            <li class="list__content">Pays de la Loire</li>
+            <li class="list__content">Centre-Val de Loire</li>
+            <li class="list__content">Bourgogne</li>
+            <li class="list__content">Nouvelle Aquitaine</li>
+            <li class="list__content">Auvergne-Rhônes-Alpes</li>
+            <li class="list__content">Occitanie</li>
+            <li class="list__content">Provence-Alpes-Côte d'Azur</li>
+          </ul>
+          <h1 class="right__column__title">Couleurs</h1>
+          <ul>
+            <li class="list__content">Ambrée</li>
+            <li class="list__content">Blanche</li>
+            <li class="list__content">Blonde</li>
+            <li class="list__content">Brune</li>
+            <li class="list__content">Rosée</li>
+            <li class="list__content">Rouge</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="details__title">
+        <h1>La Sélection</h1>
       </div>
     </div>
   </div>
@@ -61,7 +68,6 @@ export default {
 .beer__wrapper {
   width: 100%;
 }
-
 .beer__wrapper--headline {
   overflow: hidden;
   display: flex;
@@ -81,7 +87,9 @@ export default {
   color: white;
   font-size: 85px;
 }
-
+.details__wrapper{
+  display: flex;
+}
 .right__column {
   box-shadow: 3px 0px 7px -4px rgba(0, 0, 0, 0.49);
   display: flex;
@@ -89,9 +97,11 @@ export default {
   height: 1600px;
   margin-bottom: 0;
 }
-.right__column__title{
+
+.right__column__title {
   margin-top: 50px;
 }
+
 .right__column__content {
   display: flex;
   align-items: start;
@@ -99,10 +109,12 @@ export default {
   padding-left: 50px;
   margin-top: 150px;
 }
+
 li, ul {
   padding: 0;
   margin: 0;
 }
+
 .list__content {
   margin-top: 5px;
 }
