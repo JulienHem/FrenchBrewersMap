@@ -27,7 +27,7 @@ export default {
 
 html, body {
   margin : 0;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
 
 }
 ul{

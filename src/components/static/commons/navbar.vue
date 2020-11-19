@@ -24,7 +24,15 @@ a {
   padding: 0 12px;
   color: white;
 }
-
+nav {
+  background-color: #ffffff;
+}
+.nav__wrap {
+  height: 71px;
+  margin-right: 460px;
+  margin-left: 400px;
+  line-height: 35px;
+}
 .nav__list {
   position: relative;
   display: inline-block;
@@ -35,19 +43,12 @@ a {
   overflow-y: inherit;
   float: right;
 }
-nav {
-  background-color: #ffffff;
-}
+
 .logo__title {
-  color: #5FC85C;
+  color: #5fc85c;
   display: inline-block;
 }
-.nav__wrap {
-  height: 71px;
-  margin-right: 460px;
-  margin-left: 400px;
-  line-height: 35px;
-}
+
 .nav__item {
   display: inline-block;
   color: #5FC85C;

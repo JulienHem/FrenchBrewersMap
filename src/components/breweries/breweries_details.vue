@@ -6,41 +6,44 @@
     </div>
 
     <div class="img__block">
-      <h1 class="brewery__title">La Débauche</h1>
       <img src="../../assets/brewerslogo/débauche__logo2.png" alt="LogoBrasserie">
     </div>
 
-    <div class="blocks__wrapper">
-      <div class="block__cards">
-        <div class="blocks__title"></div>
-        <div class="blacks__content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorum ducimus impedit ipsum libero neque nisi
-          officia optio, quibusdam quos recusandae rem sint? At eos et mollitia numquam officia porro!
+    <div class="description__wrapper">
+
+      <div class="description__box">
+        <h1 class="brewery__name">Nom de la brasserie</h1>
+        <h3 class="about__brewery">A propos de la brasserie</h3>
+        <div class="description__content__landing">
+          <div class="description__content__one">
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur atque consectetur delectus distinctio dolor eius ex impedit iste itaque nemo nihil nisi non nostrum, placeat recusandae suscipit unde veniam.</span>
+          </div>
+          <div class="description__content__two">
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis delectus distinctio dolor eos expedita hic incidunt reiciendis repellat. Consequatur, delectus et explicabo laborum nam nobis sequi sit ut veritatis.
+        </span>
+          </div>
         </div>
       </div>
 
-      <div class="block__cards">
-        <div class="block_title"></div>
-        <div class="blocks_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam autem
-          commodi cum dolor eaque excepturi incidunt laboriosam laborum libero maiores natus porro, quam quas
-          repellendus sit unde vitae voluptatibus.
-        </div>
+      <div class="brewery__picture">
+        <img src="../../assets/breweries/ladébauche.png" alt="brewerypic" height="450px">
       </div>
+
+
     </div>
 
-    <div class="selectedBeers__wrapper">
 
+    <div class="selectedBeers__wrapper">
       <h1 class="beer__list__title">Bières de la brasserie</h1>
       <div class="select__beer__box">
         <div class="beer__list" v-for="n in beers">
           <img :src="'https://picsum.photos/id/' + n + '/100/200'" alt="">
         </div>
       </div>
-
     </div>
 
   </div>
-
 </template>
 
 <script>
@@ -55,14 +58,15 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 .breweries__img {
   background-image: url("../../../../brewersmap/src/assets/home/breweriesbanner.png");
 }
-
 .banner__wrapper {
   width: 100%;
 }
-.banner__wrapper--headline{
+.banner__wrapper--headline {
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -74,57 +78,78 @@ export default {
   justify-content: center;
   height: 720px;
 }
-
 .banner__title {
   display: flex;
   align-items: center;
   color: white;
   font-size: 85px;
 }
-
 .img__block {
   text-align: center;
   font-size: 25px;
 }
-
 .img__block img {
   width: 450px;
   height: auto;
-}
-
-.blocks__wrapper {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   margin-top: 50px;
-  margin-bottom: 50px;
 }
-
-.block__cards {
-  background-color: white;
-  min-height: 300px;
+.beer__list__title {
+  font-size: 60px;
+}
+.description__wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 50px 100px 20px 150px;
+  font-family: 'Playfair Display', serif;
+}
+.brewery__picture {
+  padding: 50px 0 20px 100px;
+}
+.description__box {
+  padding-right: 100px;
+}
+.brewery__name {
+  text-transform: uppercase;
+  font-weight: 90;
+  font-size: 80px;
+}
+.brewery__name {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.about__brewery {
+  margin-top: 0;
+  letter-spacing: 4px;
+}
+.description__content__landing{
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+  padding-top: 100px;
+}
+.description__content__one {
   max-width: 400px;
-  border-top: solid 1px #5FC85C;
-  border-bottom: solid 1px #5FC85C;
-  box-shadow: 0px 3px 5px 0px rgba(161, 161, 161, 0.5);
+  padding-right: 60px;
 }
-
+.description__content__two{
+  max-width: 400px;
+}
 .selectedBeers__wrapper {
   text-align: center;
 }
-.select__beer__box{
+.select__beer__box {
   border-top: solid 1px #5FC85C;
   border-bottom: solid 1px #5FC85C;
   box-shadow: 0px 3px 5px 0px rgba(161, 161, 161, 0.5);
-
 }
 .beer__list {
   display: inline;
   margin-right: 10px;
 }
-.beer__list__title {
-  font-size: 60px;
-}
+.beer__list__title{
+  font-weight: 90;
+  font-family: 'Playfair Display', serif;
 
+}
 
 </style>
