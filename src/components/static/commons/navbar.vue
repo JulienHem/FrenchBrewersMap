@@ -2,11 +2,11 @@
   <nav>
     <div class="nav__wrap">
       <div class="logo__title">
-        <img src="../../../assets/logos/logonav.png" alt="logonav">
+        <a href="/"><img src="../../../assets/logos/logonav.png" alt="logonav" ></a>
       </div>
       <ul class="nav__list">
-        <li class="nav__item"><a href="">Bières</a></li>
-        <li class="nav__item"><a href="">Brasseries</a></li>
+        <li class="nav__item"><a href="/beers">Bières</a></li>
+        <li class="nav__item"><a href="/breweries">Brasseries</a></li>
         <li class="nav__item"><a href="">Contact</a></li>
       </ul>
     </div>

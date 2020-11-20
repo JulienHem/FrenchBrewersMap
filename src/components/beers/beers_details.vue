@@ -50,6 +50,7 @@
         <div class="details__header">
           <h1 class="details__title">
             <span>La Sélection</span>
+
           </h1>
         </div>
       </div>
@@ -60,7 +61,10 @@
 
 <script>
 export default {
-  name: "beers_details.vue"
+  name: "beers_details.vue",
+  mounted () {
+
+  }
 }
 </script>
 

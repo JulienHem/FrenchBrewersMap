@@ -6,13 +6,13 @@
     </div>
 
     <div class="img__block">
-      <img src="../../assets/brewerslogo/débauche__logo2.png" alt="LogoBrasserie">
+      <img :src="brewery_logo" alt="brasserie_logo">
     </div>
 
     <div class="description__wrapper">
 
       <div class="description__box">
-        <h1 class="brewery__name">Nom de la brasserie</h1>
+        <h1 class="brewery__name">{{ brewery_name }}</h1>
         <h3 class="about__brewery">A propos de la brasserie</h3>
         <div class="description__content__landing">
           <div class="description__content__one">
@@ -47,13 +47,25 @@
 </template>
 
 <script>
+
+const axios = require('axios');
+
 export default {
   name: "breweries_details",
   data() {
     return {
-      beers: 10
+      beers: 10,
+      brewery_name: "",
+      brewery_logo: null
     }
-  }
+  },
+  mounted() {
+      axios.get('https://api.untappd.com/v4/search/brewery?q=france&client_id=E0C207E437A71ED9F2DA223641373A625AC7CA76&client_secret=3D25A234D553B4A7D9167199CA555D2216FF7F2C')
+        .then(response => (response.data.response.brewery.items.forEach(r => {
+          this.brewery_name = r.brewery.brewery_name
+          this.brewery_logo = r.brewery.brewery_label
+        })) )
+    }
 }
 </script>
 
@@ -89,8 +101,8 @@ export default {
   font-size: 25px;
 }
 .img__block img {
-  width: 450px;
-  height: auto;
+  height: 150px;
+  width: auto;
   margin-top: 50px;
 }
 .beer__list__title {
