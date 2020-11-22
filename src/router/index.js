@@ -10,7 +10,10 @@ export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: home},
-    { path: '/breweries', component: breweries_details},
+    { path: '/breweries/:id',
+      props: true,
+      component: breweries_details
+    },
     { path: '/beers', component: beers_details}
 
   ]

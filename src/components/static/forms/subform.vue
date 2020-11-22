@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form action=""></form>
+    <form action="">Hello hello</form>
   </div>
 </template>
 

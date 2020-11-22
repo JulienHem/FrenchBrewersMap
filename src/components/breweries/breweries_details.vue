@@ -12,7 +12,7 @@
     <div class="description__wrapper">
 
       <div class="description__box">
-        <h1 class="brewery__name">{{ brewery_name }}</h1>
+        <div class="brewery__name">{{ brewery_name }}</div>
         <h3 class="about__brewery">A propos de la brasserie</h3>
         <div class="description__content__landing">
           <div class="description__content__one">
@@ -52,20 +52,33 @@ const axios = require('axios');
 
 export default {
   name: "breweries_details",
+  props: {
+    id: {
+      type: [Number, String],
+      required: true
+    }
+  },
+  watch: {
+    id(newVal, oldVal) {
+      if(newVal !== oldVal) {
+        local.reload();
+      }
+    }
+  },
   data() {
     return {
       beers: 10,
       brewery_name: "",
-      brewery_logo: null
+      brewery_logo: null,
     }
   },
   mounted() {
-      axios.get('https://api.untappd.com/v4/search/brewery?q=france&client_id=E0C207E437A71ED9F2DA223641373A625AC7CA76&client_secret=3D25A234D553B4A7D9167199CA555D2216FF7F2C')
-        .then(response => (response.data.response.brewery.items.forEach(r => {
-          this.brewery_name = r.brewery.brewery_name
-          this.brewery_logo = r.brewery.brewery_label
-        })) )
-    }
+    axios.get('https://api.untappd.com/v4/search/brewery?q=france&client_id=E0C207E437A71ED9F2DA223641373A625AC7CA76&client_secret=3D25A234D553B4A7D9167199CA555D2216FF7F2C')
+      .then(response => (response.data.response.brewery.items.forEach(r => {
+        this.brewery_name = r.brewery.brewery_name
+        this.brewery_logo = r.brewery.brewery_label
+      })))
+  }
 }
 </script>
 
@@ -75,9 +88,11 @@ export default {
 .breweries__img {
   background-image: url("../../../../brewersmap/src/assets/home/breweriesbanner.png");
 }
+
 .banner__wrapper {
   width: 100%;
 }
+
 .banner__wrapper--headline {
   overflow: hidden;
   display: flex;
@@ -85,80 +100,98 @@ export default {
   background-size: cover;
   position: relative;
 }
+
 .banner__wrapper__headline--landing {
   display: flex;
   justify-content: center;
   height: 720px;
 }
+
 .banner__title {
   display: flex;
   align-items: center;
   color: white;
   font-size: 85px;
 }
+
 .img__block {
   text-align: center;
   font-size: 25px;
 }
+
 .img__block img {
   height: 150px;
   width: auto;
   margin-top: 50px;
 }
+
 .beer__list__title {
   font-size: 60px;
 }
+
 .description__wrapper {
   display: flex;
   flex-direction: row;
   padding: 50px 100px 20px 150px;
   font-family: 'Playfair Display', serif;
 }
+
 .brewery__picture {
   padding: 50px 0 20px 100px;
 }
+
 .description__box {
   padding-right: 100px;
 }
+
 .brewery__name {
   text-transform: uppercase;
   font-weight: 90;
   font-size: 80px;
 }
+
 .brewery__name {
   margin-bottom: 0;
   margin-top: 0;
 }
+
 .about__brewery {
   margin-top: 0;
   letter-spacing: 4px;
 }
-.description__content__landing{
+
+.description__content__landing {
   display: flex;
   flex-direction: row;
   text-align: start;
   padding-top: 100px;
 }
+
 .description__content__one {
   max-width: 400px;
   padding-right: 60px;
 }
-.description__content__two{
+
+.description__content__two {
   max-width: 400px;
 }
+
 .selectedBeers__wrapper {
   text-align: center;
 }
+
 .select__beer__box {
   border-top: solid 1px #5FC85C;
   border-bottom: solid 1px #5FC85C;
   box-shadow: 0px 3px 5px 0px rgba(161, 161, 161, 0.5);
 }
+
 .beer__list {
   display: inline;
   margin-right: 10px;
 }
-.beer__list__title{
+
+.beer__list__title {
   font-weight: 90;
   font-family: 'Playfair Display', serif;
 
