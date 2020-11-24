@@ -98,9 +98,10 @@ export default {
 </script>
 
 <style scoped>
-.beer_img {
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-  background-image: url("../../../../brewersmap/src/assets/home/beerbanner.png");
+
+.beer_img {
+  background-image: url("../../assets/static/beerbanner.png");
 }
 
 .beer-wrapper {
@@ -234,7 +235,7 @@ export default {
 }
 
 .france__map path {
-  fill: #5FC85C;
+  fill: #5fc85c;
   stroke: #000;
   stroke-width: 0.50px;
   transition: fill 0.3s;

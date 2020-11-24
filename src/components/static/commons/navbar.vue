@@ -6,8 +6,8 @@
       </div>
       <ul class="nav__list">
         <li class="nav__item"><router-link to="/beers">Bières</router-link></li>
-        <li class="nav__item"><router-link :to='"/breweries/" + id' >Brasseries</router-link></li>
-        <li class="nav__item"><router-link  to="">Contact</router-link></li>
+        <li class="nav__item"><router-link to="/breweries">Brasseries</router-link></li>
+        <li class="nav__item"><router-link  to="/contact">Contact</router-link></li>
       </ul>
     </div>
   </nav>
@@ -20,14 +20,15 @@ export default {
   name: "navbar",
   data () {
     return {
-      id: null
+      breweryid: 0,
     }
   },
   mounted() {
     axios.get('https://api.untappd.com/v4/search/brewery?q=france&client_id=E0C207E437A71ED9F2DA223641373A625AC7CA76&client_secret=3D25A234D553B4A7D9167199CA555D2216FF7F2C')
       .then(response => (response.data.response.brewery.items.forEach(r => {
-        this.id = r.brewery.brewery_id
-      })) )
+        this.breweryid = r.brewery.brewery_id
+      }))
+    )
   }
 }
 </script>

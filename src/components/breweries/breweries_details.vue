@@ -55,13 +55,13 @@ export default {
   props: {
     id: {
       type: [Number, String],
-      required: true
+      required: true,
     }
   },
   watch: {
     id(newVal, oldVal) {
       if(newVal !== oldVal) {
-        local.reload();
+        location.reload()
       }
     }
   },
@@ -69,7 +69,7 @@ export default {
     return {
       beers: 10,
       brewery_name: "",
-      brewery_logo: null,
+      brewery_logo: "",
     }
   },
   mounted() {
@@ -86,7 +86,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 .breweries__img {
-  background-image: url("../../../../brewersmap/src/assets/home/breweriesbanner.png");
+  background-image: url("../../assets/static/breweriesbanner.png");
 }
 
 .banner__wrapper {

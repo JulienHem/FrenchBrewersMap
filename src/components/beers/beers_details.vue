@@ -70,7 +70,7 @@ export default {
 
 <style scoped>
 .beer_banner_img {
-  background-image: url("../../../../brewersmap/src/assets/home/beer_shop_banner.png");
+  background-image: url("../../assets/static/beer_shop_banner.png");
 }
 .beer__wrapper {
   width: 100%;
