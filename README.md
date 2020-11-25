@@ -10,4 +10,4 @@ I'm a french Frontend Developer and obviously a beer lover ! As I wanted to crea
 
 # API
 
-Using the Untappd API to display information ! 🍻
+Using the Untappd API and OpenBreweryDB to display information ! 🍻
