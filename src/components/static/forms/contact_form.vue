@@ -66,6 +66,7 @@ export default {
   justify-content: center;
   background-size: cover;
   position: relative;
+  padding: 0;
 }
 
 .contact__wrapper__headline--landing {

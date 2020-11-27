@@ -65,13 +65,7 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get("https://api.untappd.com/v4/search/brewery?q=france&limit=50&client_id=E0C207E437A71ED9F2DA223641373A625AC7CA76&client_secret=3D25A234D553B4A7D9167199CA555D2216FF7F2C")
-      .then(response => (response.data.response.brewery.items.forEach(r => {
-        this.breweryName.push(r.brewery.brewery_name)
-        this.breweryRegion.push(r.brewery.location.brewery_state)
-        console.log(this.breweryRegion)
-      })))
+
   }
 }
 </script>

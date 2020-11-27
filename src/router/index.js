@@ -12,13 +12,7 @@ export default new Router({
   mode: 'history',
   routes: [
     {path: '/', component: home},
-    {path: '/breweries', component: breweries_home},
-    {
-      path: '/breweries/:id',
-      name: 'breweries_details',
-      component: breweries_details,
-      props: true,
-    },
+    {path: '/breweries', component: breweries_details},
     {path: '/beers', component: beers_details},
     {path: '/contact', component: contact_form}
 

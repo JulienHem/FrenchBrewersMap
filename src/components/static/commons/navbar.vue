@@ -7,7 +7,7 @@
       <ul class="nav__list">
         <li class="nav__item"><router-link to="/beers">Bières</router-link></li>
         <li class="nav__item"><router-link to="/breweries">Brasseries</router-link></li>
-        <li class="nav__item"><router-link  to="/contact">Contact</router-link></li>
+        <li class="nav__item"><router-link  to="/contact">Contactez-nous</router-link></li>
       </ul>
     </div>
   </nav>

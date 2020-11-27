@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 
 
 export default {
@@ -82,6 +83,8 @@ export default {
   components: {},
   methods: {
     alertOnLoad() {
+      Cookies.set("modal", "Cookie to destroy modal", {expires: 1, SameSite: 'strict'})
+
       this.$swal({
         text: `Bienvenue sur La Brewers Map ! Vous entrez dans un lieu communautaire, entretenu et maintenu par des passionnés. Si vous ne trouvez pas votre brasserie préférée
         ne vous en faites pas ! Remplissez ce formulaire et nous ajouterons dés que possible la brasserie pour la faire découvrir au plus grand nombre ! 🍺`,
@@ -91,9 +94,10 @@ export default {
     }
   },
   mounted() {
-    this.alertOnLoad()
-
-  }
+    if(!Cookies.get('modal')) {
+      this.alertOnLoad()
+    }
+  },
 }
 </script>
 

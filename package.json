@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "js-cookie": "^2.2.1",
     "jso": "^4.1.1",
     "postcss": "^8.1.9",
     "vue": "^2.6.12",
