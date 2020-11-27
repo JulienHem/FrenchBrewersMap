@@ -12,7 +12,7 @@
     <div class="description__wrapper">
 
       <div class="description__box">
-        <div class="brewery__name">{{ brewery_name }}</div>
+        <div class="brewery__name" v-for="items in brasserie">{{ items.name }}</div>
         <h3 class="about__brewery">A propos de la brasserie</h3>
         <div class="description__content__landing">
           <div class="description__content__one">
@@ -47,33 +47,21 @@
 </template>
 
 <script>
-
 const axios = require('axios');
 
 export default {
   name: "breweries_details",
-  props: {
-    id: {
-      type: [Number, String],
-      required: true,
-    }
-  },
-  watch: {
-    id(newVal, oldVal) {
-      if(newVal !== oldVal) {
-        location.reload()
-      }
-    }
-  },
   data() {
     return {
       beers: 10,
-      brewery_name: "",
-      brewery_logo: "",
+      brasserie: [],
     }
   },
   mounted() {
-
+    axios
+      .get("http://127.0.0.1:8000" + this.$route.params.id)
+      .then(response => (this.brasserie = response)
+      )
   }
 }
 </script>

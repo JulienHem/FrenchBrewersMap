@@ -2,12 +2,22 @@
   <nav>
     <div class="nav__wrap">
       <div class="logo__title">
-        <a href="/"><img src="../../../assets/logos/logonav.png" alt="logonav" ></a>
+        <a href="/"><img src="../../../assets/logos/logonav.png" alt="logonav"></a>
       </div>
       <ul class="nav__list">
-        <li class="nav__item"><router-link to="/beers">Bières</router-link></li>
-        <li class="nav__item"><router-link to="/breweries">Brasseries</router-link></li>
-        <li class="nav__item"><router-link  to="/contact">Contactez-nous</router-link></li>
+        <li class="nav__item">
+          <router-link to="/beers">Bières</router-link>
+        </li>
+        <li class="nav__item">
+          <router-link :to="{
+          name: 'breweries',
+          params: { id: breweryid }
+        }">Brasseries
+          </router-link>
+        </li>
+        <li class="nav__item">
+          <router-link to="/contact">Contactez-nous</router-link>
+        </li>
       </ul>
     </div>
   </nav>
@@ -18,18 +28,19 @@ const axios = require('axios');
 
 export default {
   name: "navbar",
-  data () {
+  data() {
     return {
-      breweryid: 0,
+      breweryid: null,
+      id: null,
     }
   },
   mounted() {
-    axios.get('https://api.untappd.com/v4/search/brewery?q=france&client_id=E0C207E437A71ED9F2DA223641373A625AC7CA76&client_secret=3D25A234D553B4A7D9167199CA555D2216FF7F2C')
-      .then(response => (response.data.response.brewery.items.forEach(r => {
-        this.breweryid = r.brewery.brewery_id
-      }))
-    )
-  }
+    axios
+      .get("http://127.0.0.1:8000/api/breweries?page=1")
+      .then(response => (this.info = response.data["hydra:member"].forEach(r => {
+        return r.name
+      })))
+  },
 }
 </script>
 
@@ -38,15 +49,18 @@ a {
   padding: 0 12px;
   color: white;
 }
+
 nav {
   background-color: #ffffff;
 }
+
 .nav__wrap {
   height: 71px;
   margin-right: 460px;
   margin-left: 400px;
   line-height: 35px;
 }
+
 .nav__list {
   position: relative;
   display: inline-block;
@@ -67,10 +81,10 @@ nav {
   display: inline-block;
   color: #5FC85C;
 }
+
 a {
   color: #5FC85C;
 }
-
 
 
 </style>

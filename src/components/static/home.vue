@@ -16,23 +16,15 @@
       <p>Sélectionnées par notre équipe</p>
 
       <div class="cards__wrapper">
-
-        <div class="card_one">
-          <img src="../../../../brewersmap/src/assets/brewerslogo/ladebauche.png">
+        <div v-for="items in brasserie" class="card_one">
+          <router-link :to="{
+            name: 'breweries',
+            params: {id: items.id}
+          }">
+            <img :src="items.img">
+          </router-link>
         </div>
 
-        <div class="card_two">
-          <img src="../../../../brewersmap/src/assets/brewerslogo/grandparis.png">
-
-        </div>
-
-
-        <div class="card_three">
-          <img src="../../../../brewersmap/src/assets/brewerslogo/zoobrew.png"></div>
-
-        <div class="card_four">
-          <img src="../../../../brewersmap/src/assets/brewerslogo/veyrat.png">
-        </div>
       </div>
     </div>
 
@@ -76,27 +68,44 @@
 
 <script>
 import Cookies from 'js-cookie'
-
+const axios = require('axios');
 
 export default {
   name: "home",
+  data () {
+    return {
+      brasserie : [],
+      items: 4,
+    }
+  },
   components: {},
   methods: {
     alertOnLoad() {
       Cookies.set("modal", "Cookie to destroy modal", {expires: 1, SameSite: 'strict'})
-
       this.$swal({
         text: `Bienvenue sur La Brewers Map ! Vous entrez dans un lieu communautaire, entretenu et maintenu par des passionnés. Si vous ne trouvez pas votre brasserie préférée
         ne vous en faites pas ! Remplissez ce formulaire et nous ajouterons dés que possible la brasserie pour la faire découvrir au plus grand nombre ! 🍺`,
         width: '600px',
         confirmButtonColor: '#5fc85c',
       })
-    }
+    },
   },
   mounted() {
-    if(!Cookies.get('modal')) {
+    if (!Cookies.get('modal')) {
       this.alertOnLoad()
     }
+    axios
+      .get("http://127.0.0.1:8000/api/breweries?page=1")
+      .then(response => (this.brasserie = response.data["hydra:member"].map(r => {
+        let brasserieId = r["@id"]
+        let brasserieImg = r.breweryImg
+
+        return {
+          img: brasserieImg,
+          id: brasserieId
+        }
+
+      })))
   },
 }
 </script>
