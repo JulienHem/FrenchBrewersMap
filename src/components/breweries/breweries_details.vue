@@ -5,44 +5,47 @@
       <h1 class="banner__title">LA BRASSERIE</h1>
     </div>
 
-    <div class="img__block">
-      <img src="../../assets/brewerslogo/débauche__logo2.png" alt="brasserie_logo">
-    </div>
+    <div>
 
-    <div class="description__wrapper">
+      <div class="img__block">
+        <img :src="brasserie.detailsImg" alt="imageofbrewery">
+      </div>
 
-      <div class="description__box">
-        <div class="brewery__name" v-for="items in brasserie">{{ items.name }}</div>
-        <h3 class="about__brewery">A propos de la brasserie</h3>
-        <div class="description__content__landing">
-          <div class="description__content__one">
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur atque consectetur delectus distinctio dolor eius ex impedit iste itaque nemo nihil nisi non nostrum, placeat recusandae suscipit unde veniam.</span>
-          </div>
-          <div class="description__content__two">
+      <div class="description__wrapper">
+
+        <div class="description__box">
+          <div class="brewery__name">{{ brasserie.name }}</div>
+          <h3 class="about__brewery">A propos de la brasserie</h3>
+          <div class="description__content__landing">
+            <div class="description__content__one">
+              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur atque consectetur delectus distinctio dolor eius ex impedit iste itaque nemo nihil nisi non nostrum, placeat recusandae suscipit unde veniam.</span>
+            </div>
+            <div class="description__content__two">
         <span>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis delectus distinctio dolor eos expedita hic incidunt reiciendis repellat. Consequatur, delectus et explicabo laborum nam nobis sequi sit ut veritatis.
         </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="brewery__picture">
+          <img src="../../assets/breweries/ladébauche.png" alt="brewerypic" height="450px">
+        </div>
+
+
+      </div>
+    </div>
+
+
+      <div class="selectedBeers__wrapper">
+        <h1 class="beer__list__title">Bières de la brasserie</h1>
+        <div class="select__beer__box">
+          <div class="beer__list" v-for="n in beers">
+            <img :src="'https://picsum.photos/id/' + n + '/100/200'" alt="">
           </div>
         </div>
       </div>
-
-      <div class="brewery__picture">
-        <img src="../../assets/breweries/ladébauche.png" alt="brewerypic" height="450px">
-      </div>
-
-
     </div>
-
-
-    <div class="selectedBeers__wrapper">
-      <h1 class="beer__list__title">Bières de la brasserie</h1>
-      <div class="select__beer__box">
-        <div class="beer__list" v-for="n in beers">
-          <img :src="'https://picsum.photos/id/' + n + '/100/200'" alt="">
-        </div>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -55,14 +58,16 @@ export default {
     return {
       beers: 10,
       brasserie: [],
+      imgs: "",
     }
   },
   mounted() {
     axios
       .get("http://127.0.0.1:8000" + this.$route.params.id)
-      .then(response => (this.brasserie = response)
+      .then(response => (this.brasserie = response.data)
       )
   }
+
 }
 </script>
 

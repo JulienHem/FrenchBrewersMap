@@ -60,12 +60,18 @@ export default {
   data() {
     return {
       region: "",
+      brasserieDetails: [],
       breweryName: [],
       breweryRegion: [],
     }
   },
   mounted() {
-
+    axios
+      .get("http://127.0.0.1:8000/api/breweries")
+      .then(response => this.brasserieDetails = response)
+      .catch(e => {
+        console.log(e)
+      })
   }
 }
 </script>

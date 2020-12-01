@@ -9,10 +9,7 @@
           <router-link to="/beers">Bières</router-link>
         </li>
         <li class="nav__item">
-          <router-link :to="{
-          name: 'breweries',
-          params: { id: breweryid }
-        }">Brasseries
+          <router-link to="/breweries">Brasseries
           </router-link>
         </li>
         <li class="nav__item">

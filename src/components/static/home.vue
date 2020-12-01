@@ -15,16 +15,15 @@
       <h1 class="title__cards__section">Les brasseries du mois</h1>
       <p>Sélectionnées par notre équipe</p>
 
-      <div class="cards__wrapper">
+      <div  class="cards__wrapper">
         <div v-for="items in brasserie" class="card_one">
           <router-link :to="{
             name: 'breweries',
-            params: {id: items.id}
+            params: {id: items[`@id`]}
           }">
-            <img :src="items.img">
+            <img :src="items.breweryImg" alt="lel">
           </router-link>
         </div>
-
       </div>
     </div>
 
@@ -68,14 +67,15 @@
 
 <script>
 import Cookies from 'js-cookie'
+
 const axios = require('axios');
 
 export default {
   name: "home",
-  data () {
+  data() {
     return {
-      brasserie : [],
-      items: 4,
+      brasserie: [],
+      brasserieId: ["32", "48", "75", "82"],
     }
   },
   components: {},
@@ -94,19 +94,20 @@ export default {
     if (!Cookies.get('modal')) {
       this.alertOnLoad()
     }
-    axios
-      .get("http://127.0.0.1:8000/api/breweries?page=1")
-      .then(response => (this.brasserie = response.data["hydra:member"].map(r => {
-        let brasserieId = r["@id"]
-        let brasserieImg = r.breweryImg
 
-        return {
-          img: brasserieImg,
-          id: brasserieId
-        }
-
-      })))
-  },
+    this.brasserieId.map(g => {
+      axios
+        .get("http://127.0.0.1:8000/api/breweries/" + g)
+        .then(response => (
+            this.brasserie.push(response.data)
+          )
+        )
+        .catch(e => {
+            console.log(e)
+          }
+        )
+    })
+  }
 }
 </script>
 
