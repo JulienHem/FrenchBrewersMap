@@ -37,12 +37,11 @@
     </div>
 
 
-      <div class="selectedBeers__wrapper">
-        <h1 class="beer__list__title">Bières de la brasserie</h1>
-        <div class="select__beer__box">
-          <div class="beer__list" v-for="n in beers">
-            <img :src="'https://picsum.photos/id/' + n + '/100/200'" alt="">
-          </div>
+    <div class="selectedBeers__wrapper">
+      <h1 class="beer__list__title">Bières de la brasserie</h1>
+      <div class="select__beer__box">
+        <div class="beer__list" v-for="n in beers">
+          <img :src="'https://picsum.photos/id/' + n + '/100/200'" alt="">
         </div>
       </div>
     </div>
@@ -66,6 +65,9 @@ export default {
       .get("http://127.0.0.1:8000" + this.$route.params.id)
       .then(response => (this.brasserie = response.data)
       )
+      .catch(e => {
+        console.log(e)
+      })
   }
 
 }
