@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import navbar from "./components/static/commons/navbar";
-import lefooter from "./components/static/commons/lefooter";
+import navbar from "./components/static/commons/Navbar";
+import lefooter from "./components/static/commons/Footer";
 
 export default {
   name: 'App',

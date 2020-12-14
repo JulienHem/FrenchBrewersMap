@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from "../components/static/home";
-import breweries_details from "../components/breweries/breweries_details";
-import beers_details from "../components/beers/beers_details";
-import contact_form from "../components/static/forms/contact_form";
-import brewery_region from "../components/breweries/brewery_region";
+import home from "../components/static/Home";
+import breweries_details from "../components/breweries/BreweriesDetails";
+import beers_details from "../components/beers/BeersDetails";
+import contact_form from "../components/static/forms/ContactForm";
+import brewery_region from "../components/breweries/BreweryRegion";
 
 Vue.use(Router)
 

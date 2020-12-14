@@ -21,7 +21,7 @@
             name: 'breweries',
             params: {id: items[`@id`]}
           }">
-            <img :src="items.breweryImg" alt="lel">
+            <img :src="items.breweryImg" alt="brewery_img">
           </router-link>
         </div>
       </div>
@@ -144,7 +144,7 @@ export default {
   data() {
     return {
       brasserie: [],
-      brasserieId: ["32", "48", "75", "82"],
+      brasserieId: ["32", "48", "75", "107"],
     }
   },
   components: {},
