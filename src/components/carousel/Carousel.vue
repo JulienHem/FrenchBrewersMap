@@ -1,7 +1,11 @@
 <template>
-  <div class="carousel">
+  <div class="carousel_box">
+
+  <div class="carousel__container">
     <slot></slot>
-    <ArrowRightIcon
+  </div>
+
+  <ArrowRightIcon
       class="carousel__nav carousel__next"
       @click.prevent="next"
     />
@@ -10,6 +14,7 @@
       @click.prevent="prev"
     />
   </div>
+
 </template>
 
 <script>
@@ -25,7 +30,8 @@ export default {
   data() {
     return {
       index: 0,
-      slides: []
+      slides: [],
+      direction: null,
     }
   },
   computed: {
@@ -42,15 +48,18 @@ export default {
   methods: {
     next() {
       this.index++
-      if (this.index >= this.slidesCount) {
+      this.direction = 'right'
+      if( this.index >= this.slidesCount) {
         this.index = 0
       }
+
     },
     prev() {
       this.index--
-      if (this.index < 0) {
-        this.index = this.slidesCount - 1
-      }
+      this.direction = 'left'
+    if(this.index < 0) {
+      this.index = this.slidesCount - 1
+    }
     }
   },
 
@@ -58,7 +67,11 @@ export default {
 </script>
 
 <style scoped>
-.carousel {
+.carousel__container{
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1250px;
+  overflow: hidden;
   position: relative;
 }
 
@@ -66,14 +79,22 @@ export default {
   position: absolute;
   top: 50%;
   margin-top: -31px;
-  left: 10px;
   width: 63px;
   height: 63px;
   cursor: pointer;
 }
-
 .carousel__nav.carousel__next {
   right: 10px;
   left: auto;
+}
+.carousel__next {
+  margin-right: 230px;
+}
+.carousel__prev {
+  margin-left: 270px;
+}
+
+.carousel_box{
+  position: relative;
 }
 </style>

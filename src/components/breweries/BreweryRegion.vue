@@ -3,8 +3,13 @@
 
     <Carousel>
       <carousel-slides>
-        <div v-for="images in this.breweryLogos">
-          <img :src="images" alt="" class="carousel__imgs">
+        <div v-for="logos in breweryLogos.slice(0,5)">
+          <img :src="logos">
+        </div>
+      </carousel-slides>
+      <carousel-slides>
+        <div v-for="logos in breweryLogos.slice(5,10)">
+          <img :src="logos">
         </div>
       </carousel-slides>
     </Carousel>
