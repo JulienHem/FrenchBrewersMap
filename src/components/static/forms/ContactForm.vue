@@ -8,22 +8,56 @@
 
     <h1 class="title__form__section">Le Formulaire</h1>
     <p class="sub__title">Contactez-nous pour avoir votre brasserie sur la map !</p>
-    <form type="send">
+    <form method="post" class="contact__form">
 
       <div class="contact__wrapper">
 
         <div class="left__contact__content">
-          <img src="../../../../src/assets/static/contact_sub.png">
+          <img src="../../../../src/assets/static/contact_sub.png" alt="">
         </div>
 
+
         <div class="right__contact__content">
+
+
           <ul>
-            <li><input type="text" placeholder="Nom de la brasserie"></li>
-            <li><input type="text" placeholder="Ville"></li>
-            <li><input type="text" placeholder="Adresse"></li>
-            <li><input type="text" placeholder="Code Postal"></li>
+            <li>
+              <label for="name"></label>
+              <input id="name"
+                     v-model="form.breweryname"
+                     type="text"
+                     name="name"
+                     placeholder="Nom de la brasserie"></li>
+            <li><label for="city"></label>
+              <input id="city"
+                     v-model="form.city"
+                     name="city"
+                     type="text"
+                     placeholder="Ville"></li>
+            <li><label for="adress"></label>
+              <input type="text"
+                     id="adress"
+                     v-model="form.adress"
+                     name="adress"
+                     placeholder="Adresse"></li>
+            <li><label for="region"></label>
+              <input type="text"
+                     id="region"
+                     v-model="form.region"
+                     name="region"
+                     placeholder="Région"></li>
+            <li><label for="postalcode"></label>
+              <input type="text"
+                     id="postalcode"
+                     name="postalcode"
+                     v-model="form.postalcode"
+                     placeholder="Code Postal"></li>
           </ul>
-          <button class="send__button" >Soumettre</button>
+          <button type="submit"
+                  value="submit"
+                  :onclick="submit"
+                  class="send__button">Soumettre
+          </button>
 
         </div>
       </div>
@@ -33,8 +67,36 @@
 </template>
 
 <script>
+const axios = require('axios')
+
 export default {
-  name: "contact_form"
+  name: "contact_form",
+  data() {
+    return {
+      form: {
+        breweryname: '',
+        city: '',
+        region: '',
+        adress: '',
+        postalcode: '',
+      }
+    }
+  },
+  methods: {
+
+    submit() {
+      if (this.form.breweryname && this.form.city) {
+        axios
+          .post('http://localhost:8000/api/awaiting_breweries', this.form)
+          .then(response => {
+           console.log(response.data["hydra:member"])
+          })
+          .catch(e => {
+            console.error(e)
+          });
+      }
+    },
+  }
 }
 </script>
 
@@ -122,6 +184,7 @@ input[type=text] {
   color: rgba(0, 0, 0, 0.5);
   font-family: 'Playfair Display', serif;
 }
+
 input[type=text]:focus {
   border-bottom: 1px solid #555;
   color: rgba(0, 0, 0, 1);
@@ -138,11 +201,13 @@ button {
   font-family: 'Playfair Display', serif;
   transition: 0.5s;
 }
+
 button:hover {
   border-bottom: 1px solid #555;
   color: rgba(0, 0, 0, 1);
 }
-li:last-child{
+
+li:last-child {
   margin-bottom: 0;
 }
 </style>
