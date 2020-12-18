@@ -55,7 +55,7 @@
           </ul>
           <button type="submit"
                   value="submit"
-                  :onclick="submit"
+                  @:click.prevent="submit"
                   class="send__button">Soumettre
           </button>
 
@@ -87,9 +87,9 @@ export default {
     submit() {
       if (this.form.breweryname && this.form.city) {
         axios
-          .post('http://localhost:8000/api/awaiting_breweries', this.form)
+          .post(`http://localhost:8000/api/awaiting_breweries`, this.form)
           .then(response => {
-           console.log(response.data["hydra:member"])
+            console.log(response)
           })
           .catch(e => {
             console.error(e)
