@@ -57,7 +57,7 @@
 
                   </li>
                 </ValidationProvider>
-                <ValidationProvider rules="required|alpha_spaces" v-slot="{ classes }">
+                <ValidationProvider :rules="{ required: {regex: /[A-Za-z0-9'\.\-\s\,]/} }" v-slot="{ classes }">
                   <li><label for="region"></label>
                     <input type="text"
                            id="region"
