@@ -22,65 +22,63 @@
 
           <form method="post" @submit.prevent="submit">
             <div class="contact__form">
-
               <ul>
-                <li>
-                  <label for="name"></label>
-                  <ValidationProvider rules="required|alpha_dash" v-slot="{ valid, invalid }">
+                <ValidationProvider :rules="{ required: {regex: /[A-Za-z0-9'\.\-\s\,]/} } " v-slot="{ classes }">
+                  <li>
+                    <label for="name"></label>
                     <input id="name"
-                           :class="`is-$(valid)`"
                            v-model="form.breweryname"
                            type="text"
+                           :class="classes"
                            name="name"
                            placeholder="Nom de la brasserie">
-
-                  </ValidationProvider>
-                </li>
-                <li>
-                  <label for="city"></label>
-                  <ValidationProvider rules="required|alpha_dash" v-slot="{ errors }">
+                  </li>
+                </ValidationProvider>
+                <ValidationProvider :rules="{ required: {regex: /[A-Za-z0-9'\.\-\s\,]/} } " v-slot="{ classes }">
+                  <li>
+                    <label for="city"></label>
                     <input id="city"
                            v-model="form.city"
+                           :class="classes"
                            name="city"
                            type="text"
                            placeholder="Ville">
-                    <span>{{ errors[0] }}</span>
-                  </ValidationProvider>
-                </li>
-                <li><label for="adress"></label>
-                  <ValidationProvider rules="required|alpha_dash" v-slot="{ errors }">
+                  </li>
+                </ValidationProvider>
+
+                <ValidationProvider rules="required" :rules="{ required: {regex: /[A-Za-z0-9'\.\-\s\,]/} }" v-slot="{ classes  }">
+                  <li><label for="adress"></label>
                     <input type="text"
                            id="adress"
+                           :class="classes"
                            v-model="form.adress"
                            name="adress"
                            placeholder="Adresse">
-                    <span>{{ errors[0] }}</span>
 
-                  </ValidationProvider>
-                </li>
-                <li><label for="region"></label>
-                  <ValidationProvider rules="required|alpha_dash" v-slot="{ errors }">
-
+                  </li>
+                </ValidationProvider>
+                <ValidationProvider rules="required|alpha_spaces" v-slot="{ classes }">
+                  <li><label for="region"></label>
                     <input type="text"
                            id="region"
+                           :class="classes"
                            v-model="form.region"
                            name="region"
                            placeholder="Région">
-                    <span>{{ errors[0] }}</span>
+                  </li>
+                </ValidationProvider>
 
-                  </ValidationProvider>
-                </li>
-                <li><label for="postalcode"></label>
-                  <ValidationProvider rules="required|integer" v-slot="{ errors }">
+                <ValidationProvider rules="required|integer|min:5|max:5" v-slot="{ classes }">
+                  <li>
+                    <label for="postalcode"></label>
                     <input type="text"
                            id="postalcode"
                            name="postalcode"
+                           :class="classes"
                            v-model="form.postalcode"
                            placeholder="Code Postal">
-                    <span>{{ errors[0] }}</span>
-
-                  </ValidationProvider>
-                </li>
+                  </li>
+                </ValidationProvider>
               </ul>
             </div>
 
@@ -88,7 +86,7 @@
               <button type="submit"
                       value="submit"
                       :disabled="invalid"
-                      >Soumettre
+              >Soumettre
               </button>
             </div>
 
@@ -126,24 +124,24 @@ export default {
 
     submit() {
 
-        axios
-          .post(`http://localhost:8000/api/awaiting_breweries`, this.form)
-          .then(response => {
-            console.log(response)
-            this.$swal({
-              text: `Votre demande a bien été prise en compte ! Notre équipe mettra la liste à jour dés que possible. Merci de votre participation ! 🍻`,
-              width: '600px',
-              confirmButtonColor: '#5fc85c'
-            }).then(() => {
-                location.reload();
-              }
-            );
-          })
-          .catch(e => {
-              console.error(e)
+      axios
+        .post(`http://localhost:8000/api/awaiting_breweries`, this.form)
+        .then(response => {
+          console.log(response)
+          this.$swal({
+            text: `Votre demande a bien été prise en compte ! Notre équipe mettra la liste à jour dés que possible. Merci de votre participation ! 🍻`,
+            width: '600px',
+            confirmButtonColor: '#5fc85c'
+          }).then(() => {
+              location.reload();
             }
           );
-      }
+        })
+        .catch(e => {
+            console.error(e)
+          }
+        );
+    }
 
   },
 }
@@ -234,13 +232,13 @@ input[type=text] {
   font-family: 'Playfair Display', serif;
 }
 
-input[type=text].is-true {
-  background-color: #0AE569;
-  color: #045929;
+input[type=text].valid {
+  border-bottom: 1px solid #5FC85C;
+  color: rgba(0, 0, 0, 0.5);
 }
 
-input[type=text].is-false {
-  background-color: #FFA4A2;
+input[type=text].invalid{
+  border-bottom: 1px solid #FFA4A2;
   color: #EB0600
 }
 
