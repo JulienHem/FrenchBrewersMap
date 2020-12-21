@@ -15,6 +15,7 @@
     "js-cookie": "^2.2.1",
     "jso": "^4.1.1",
     "postcss": "^8.1.9",
+    "vee-validate": "^3.4.5",
     "vue": "^2.6.12",
     "vue-material-design-icons": "^4.11.0",
     "vue-router": "^3.0.1",
