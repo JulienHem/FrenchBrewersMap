@@ -72,11 +72,6 @@ export default {
       .get("http://127.0.0.1:8000/api/breweries")
       .then(response => (this.brewery = response.data["hydra:totalItems"]))
 
-    axios
-      .get("http://127.0.0.1:8000/api/breweries")
-      .then(response => (this.brewery = response.data["hydra:member"].map(r => {
-        this.brewery.push(r.region)
-      })))
   }
 }
 </script>
@@ -112,6 +107,7 @@ export default {
     transform: translateY(-360px);
   }
 }
+
 .footer__wrapper--1 {
   background-image: url("../../../assets/static/footerbanner1.png");
 }
