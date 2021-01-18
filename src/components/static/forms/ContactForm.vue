@@ -18,11 +18,13 @@
 
       <div class="right__contact__content">
 
+<!--        Entoure le formulaire afin de pouvoir utiliser le required-->
         <ValidationObserver v-slot="{ invalid }">
 
           <form method="post" @submit.prevent="submit">
             <div class="contact__form">
               <ul>
+<!--                Entoure un input pour lui donner une règle de sécurité-->
                 <ValidationProvider :rules="{ required: {regex: /[A-Za-z0-9'\.\-\s\,]/} } " v-slot="{ classes }">
                   <li>
                     <label for="name"></label>
@@ -123,7 +125,6 @@ export default {
   methods: {
 
     submit() {
-
       axios
         .post(`http://localhost:8000/api/awaiting_breweries`, this.form)
         .then(response => {
@@ -133,6 +134,7 @@ export default {
             width: '600px',
             confirmButtonColor: '#5fc85c'
           }).then(() => {
+            // Recharge la page une fois que le formulaire est envoyée
               location.reload();
             }
           );
@@ -142,7 +144,6 @@ export default {
           }
         );
     }
-
   },
 }
 </script>
@@ -263,6 +264,7 @@ button {
 button:hover {
   border-bottom: 1px solid #555;
   color: rgba(0, 0, 0, 1);
+
 }
 
 li:last-child {

@@ -9,13 +9,15 @@ import brewery_region from "../components/breweries/BreweryRegion";
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   routes: [
     {path: '/', component: home},
     {
+      // Permet de définir la route
       path: '/breweries/:id',
       name: 'breweries',
+      // Permet de définir les propriétés
       props: true,
+      // Définit dans quel composant on veut se rendre avec cette route
       component: breweries_details
     },
     {path: '/brewery_region/:region',

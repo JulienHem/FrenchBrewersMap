@@ -62,6 +62,7 @@ export default {
   },
   mounted() {
     axios
+      // Permet de récupérer l'id correspondant
       .get("http://127.0.0.1:8000" + this.$route.params.id)
       .then(response => (this.brasserie = response.data)
       )
